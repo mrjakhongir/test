@@ -1,7 +1,7 @@
 import './chat.scss';
 
 function Chat() {
-	return <div>Chat</div>;
+	return <main className='chat'>Chat</main>;
 }
 
 export default Chat;

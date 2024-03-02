@@ -7,11 +7,11 @@ import './sidebar.scss';
 
 function Sidebar() {
 	return (
-		<div>
+		<aside className='sidebar'>
 			<Navbar />
 			<Search />
 			<Chats />
-		</div>
+		</aside>
 	);
 }
 

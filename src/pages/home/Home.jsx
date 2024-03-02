@@ -5,9 +5,11 @@ import './home.scss';
 
 function Home() {
 	return (
-		<div>
-			<Sidebar />
-			<Chat />
+		<div className='home'>
+			<div className='container'>
+				<Sidebar />
+				<Chat />
+			</div>
 		</div>
 	);
 }

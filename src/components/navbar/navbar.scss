@@ -1,0 +1,39 @@
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+	padding: 10px;
+	background-color: #a5dd9b;
+
+	.user-info {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		img {
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			border: 1px solid #fff;
+		}
+
+		p {
+			font-size: 18px;
+			color: #fff;
+		}
+	}
+
+	button {
+		border: none;
+		padding: 7px 15px;
+		background-color: #f6f193;
+		color: coral;
+		font-weight: 700;
+		border-radius: 5px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
