@@ -1,0 +1,18 @@
+.message {
+	display: flex;
+	.message__content {
+		max-width: 80%;
+		background-color: white;
+		padding: 10px 20px;
+		border-radius: 0px 10px 10px 10px;
+	}
+}
+
+.owner {
+	justify-content: flex-end;
+	.message__content {
+		color: white;
+		background-color: #a5dd9b;
+		border-radius: 10px 0px 10px 10px;
+	}
+}

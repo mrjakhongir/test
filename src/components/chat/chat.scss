@@ -6,4 +6,14 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	object-fit: cover;
+
+	.chat__user-info {
+		height: 60px;
+		background-color: #a5dd9b98;
+		display: flex;
+		align-items: center;
+		color: #fff;
+		font-size: 18px;
+		padding: 0 10px;
+	}
 }

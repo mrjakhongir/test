@@ -1,13 +1,44 @@
 .search {
-	padding: 10px;
-	input {
-		width: 100%;
-		padding: 15px 25px;
-		border-radius: 40px;
-		border: none;
-		outline: none;
-		background-color: aliceblue;
-		font-size: 15px;
-		color: #333;
+	border-bottom: 1px solid #a5dd9b;
+	.search__form {
+		padding: 10px;
+		input {
+			width: 100%;
+			padding: 15px 25px;
+			border-radius: 40px;
+			border: none;
+			outline: none;
+			background-color: aliceblue;
+			font-size: 15px;
+			color: #333;
+		}
+	}
+
+	.chats__user {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		cursor: pointer;
+		padding: 10px;
+		transition: all 250px linear;
+
+		img {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.chats__user_info {
+			padding: 3px 0;
+
+			p {
+				font-size: 18px;
+			}
+		}
+
+		&:hover {
+			background-color: #f4f4f4;
+		}
 	}
 }
