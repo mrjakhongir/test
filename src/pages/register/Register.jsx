@@ -70,11 +70,13 @@ function Register() {
 							required
 						/>
 					</fieldset>
-					<button disabled={loading}>{loading ? 'Loading...' : 'Sign Up'}</button>
+					<button disabled={loading}>
+						{loading ? 'Loading...' : 'Sign Up'}
+					</button>
 					{error && <span>Something went wrong</span>}
 				</form>
 				<p>
-					Already have an account? <Link to='/signin'>Sign In</Link>
+					Already have an account? <Link to='/login'>Sign In</Link>
 				</p>
 			</div>
 		</div>
