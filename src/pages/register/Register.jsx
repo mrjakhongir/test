@@ -1,13 +1,45 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './register.scss';
+import { useState } from 'react';
+import { auth, db } from '../../firebase';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
 function Register() {
+	const [error, setError] = useState(false);
+	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
+
+	async function handleChange(e) {
+		e.preventDefault();
+		const username = e.target['username'].value;
+		const email = e.target['email'].value;
+		const password = e.target['password'].value;
+
+		try {
+			setLoading(true);
+			const res = await createUserWithEmailAndPassword(auth, email, password);
+			await updateProfile(res.user, { displayName: username });
+			await setDoc(doc(db, 'users', res.user.uid), {
+				uid: res.user.uid,
+				displayName: username,
+				email,
+			});
+			await setDoc(doc(db, 'userChats', res.user.uid), {});
+			navigate('/');
+		} catch (err) {
+			console.log(err.message);
+			setError(true);
+			setLoading(false);
+		}
+	}
+
 	return (
 		<div className='register'>
 			<div className='register__inner'>
 				<h1>Sign Up to Telegram</h1>
 				<p>Please enter your username, email and password.</p>
-				<form>
+				<form onSubmit={handleChange}>
 					<fieldset>
 						<legend>Username</legend>
 						<input
@@ -15,7 +47,7 @@ function Register() {
 							name='username'
 							id='username'
 							placeholder='Your username...'
-							reduired
+							required
 						/>
 					</fieldset>
 					<fieldset>
@@ -25,7 +57,7 @@ function Register() {
 							name='email'
 							id='email'
 							placeholder='Your email...'
-							reduired
+							required
 						/>
 					</fieldset>
 					<fieldset>
@@ -35,10 +67,11 @@ function Register() {
 							name='password'
 							id='password'
 							placeholder='Your password...'
-							reduired
+							required
 						/>
 					</fieldset>
-					<button>Sign Up</button>
+					<button disabled={loading}>{loading ? 'Loading...' : 'Sign Up'}</button>
+					{error && <span>Something went wrong</span>}
 				</form>
 				<p>
 					Already have an account? <Link to='/signin'>Sign In</Link>
