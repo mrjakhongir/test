@@ -6,7 +6,7 @@ function Register() {
 		<div className='register'>
 			<div className='register__inner'>
 				<h1>Sign Up to Telegram</h1>
-				<p>Please enter your email and password.</p>
+				<p>Please enter your username, email and password.</p>
 				<form>
 					<fieldset>
 						<legend>Username</legend>
